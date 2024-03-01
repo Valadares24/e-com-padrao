@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+:root{
+ --cor-primaria: #33e453;
+ --cor-secundaria: #417cea;
+ --cor-secundaria-escura: #1b7549;
+
+
+ --branco: #ffffff;
+ --bg-claro: #f2f3f5;
+ --texto-claro: #7c899a;
+ --cor-borda: #e5e8ec;
+ --cor-escura: #q0a021c;
+
+ --fonte-peq: 13px;
+ --fonte-menor: 11px;
+
+ --percent100: 100%;/*porcentagens padrao*/
+ --percent50: 50%;
+
+ --fw3: 300; /*peso da fonte*/
+ --fw5: 500;
+ --fw6: 600;
+ --fw7: 700;
+ --fw8: 800;    
+
+ /*cores de transiçao*/
+  --trans--background-color: background-color .3s, color .3s;/*cor em fade movimento*/
+  --trans--background: background-color .3s;
+  --trans-color: color .3s;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+*,::before, ::after{ /*efeito imediato antes e depois do elemento*/
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--cor-escura);
+    background-color: var(--branco);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent; /*entedner melhor*/
+}
+ul{
+    list-style: none;
+}
+img{
+    max-width: var()var(--percent100);
+    vertical-align: middle;
+}
+strong{
+    font-weight: var(--fw8);
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input::placeholder{/*estetica do placeholder ,dos inputs*/
+    font: inherit;
+}
+h1,h2,h3,h4{
+    font-family: 'Poppins';
+}
+h1{
+    font-size: calc(1.3em + 1vw); /*conferir calc*/
+    font-weight: var(--fw8);
+    line-height: 1;
+}
+h2{
+    font-size: 2.5em;/*conferir uspo rem x em*/
+}
+h3{
+    font-size: 1.2em;
+    font-weight: var(--fw7);
+}
+h4{
+    font-size: 1.4em;
+    font-weight: var(--fw6);
+}
+
+    /*seletores*/
+
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.938em;/*medida muito especifica*/
+}
+.column{
+    margin-left: -0.938em;
+    margin-right: -0.938em;
+}
+.column .row{
+    padding: 0.938em;
+}
+.flexwrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexitem{
+    display: flex;
+    align-items: center;
+}
+.flexcol{
+    display: flex;
+    flex-direction:column;
+    gap: 1em;
+}
+.main-links a:hover{
+    color: var(--cor-secundaria);
+}
+.second-links a:hover{
+    color: var(--cor-secundaria);
+}
+.mobile-hide{
+    display: none;
+}
+
+/*revisao de codigo
+
+alinhamento icon barras[] 
+alinhamento horizontal right[] -foco
+posicionamento do fly-item[]
+
+
+*/
+
+
+/*header*/
+.header-nav{
+    padding: 0.5em 0;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid var(--cor-secundaria-escura);
+}
+header li > a{
+    display: flex;
+    position: relative;
+    line-height: inherit;
+    transition: var(--trans-color);
+}
+/*header top*/
+.header-top .wrapper-flexitem{
+    display: flex;
+    font-size: var(--fonte-peq);
+    font-weight: var(--fw3);
+    justify-content: space-between;/*erro estranho nao muda na horizontal*/
+    line-height: 42px;
+}
+.header-top .wrapper-flexitem ul{
+    gap: 2em; /*gap elementos da ul*/
+}
+.header-top li{/*toda lista do header top*/
+    position: relative;
+}
+/*HEADER NAV*/
+.trigger{
+    font-size: 1.5em;
+    display: flex;
+    padding:0.25em;
+    margin-right: 0.25em;
+}
+.logo a{
+    font-family: 'Poppins';
+    position: relative;
+    font-size: 1.75em;/*sempore a mesma medida[em]*/
+    font-weight: var(--fw8);
+    display: flex;
+    padding-left: 0.75em;
+    margin-right: 2em;
+}
+.circle{
+    position: absolute;
+    top: -15px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--cor-primaria);
+    border-radius: var(--percent50);
+    z-index: -1;
+}
+.circle::before{
+    content: '';/*criar sem conteudo, so o espaco*/
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: var(--cor-secundaria);
+    border-radius: var(--percent50);
+    right: 5px;/*posicao do cirtculo menbor*/
+    bottom: 5px;/*tiro os dois pra deixar no canrto superior esquerdo*/
+    opacity: .4;
+}
+.header-nav nav > ul{/*estudar sinal de maior*/
+    line-height: 100px;
+    gap: 2em;
+}
+.fly-item{
+    position: absolute;
+    height: 16px;
+    font-size: var(--fonte-menor);
+    padding: 3px;
+    text-align: center;
+    line-height: 10px;
+    color: var(--branco);
+}
+nav .fly-item{
+  position: absolute;
+  top: 50px;
+  margin-top: -24px;
+  width: 35px;
+  border-radius: 3px;
+  right: -32px;
+  background-color: var(--cor-primaria);
+}
+/*voltar nesse trecho*/
+.header-nav .right{
+    position: relative;
+    margin-left: auto;
+}
+.header-nav .right .icon-large{
+    position: relative;
+}
+.header-nav .right .fly-item{/*como funciona ordenacao de divs filhas css estudar*/
+    top: 0;
+    right: 16px;
+    width: 16px;
+    background-color: var(--cor-secundaria-escura);
+    border-radius: var(--percent50);
+}
+/*voltar nesse trecho*/
+
+/*
+Leggings
+Tops
+Shorts
+Jaquetas
+Regatas
+Saias esportivas
+Calças de moletom
+Camisetas
+Jaquetas corta-vento
+Conjuntos de treino*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 992px){
+    .container{/*estilizaçao pra tela>922px largura*/
+        padding: 0 2em;
+    }
+    .desktop-hide{/*estudar*/
+        display: none;
+    }
+    .mobile-hide{
+        display: block;
+    }
+    .logo a{
+        margin-right:2em ;
+    }
+    .header-nav{/*espaço acima do header muito grande tem elemento la*/
+        padding: 0;
+        margin: 0;
+        border-bottom: 0;
+    }
+    .header-nav .right li > a{
+        margin-left: 1em;
+    }
+}
