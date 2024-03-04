@@ -230,7 +230,7 @@ nav .fly-item{
 /*voltar nesse trecho*/
 .header-nav .right{
     position: relative;
-    margin-left: auto;
+    margin-left: 0;
 }
 .header-nav .right .icon-large{
     position: relative;
